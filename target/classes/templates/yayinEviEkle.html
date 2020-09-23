@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.3.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <title>Yayın Evi Ekle</title>
+</head>
+<body>
+<div class="container">
+    <h2>Yeni Yayın Evi Kayıt</h2>
+    <form class="form-horizontal" th:object="${yayinEvi}" th:action="@{yayinEviKaydet}" action="#" method="post">
+
+        <div class="form-group">
+            <label class="control-label col-sm-2">Yayın Evi</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{yayinEviAdi}" class="form-control" th:required="required">
+            </div>
+        </div>
+
+        <div style="clear: both; display: block; height: 10px;"></div>
+
+        <div class="form-group">
+            <span class="control-label col-sm-2">Açıklama</span>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{aciklama}" class="form-control">
+            </div>
+        </div>
+
+        <div style="clear: both; display: block; height: 10px;"></div>
+
+        <button type="submit" class="btn btn-success">Ekle</button>
+
+    </form>
+</div>
+
+</body>
+</html>

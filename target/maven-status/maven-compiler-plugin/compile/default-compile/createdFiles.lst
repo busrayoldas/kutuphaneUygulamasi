@@ -1,0 +1,12 @@
+com\example\libraryapp\controllers\IndexController.class
+com\example\libraryapp\services\impl\EkleServiceImpl.class
+com\example\libraryapp\services\AraService.class
+com\example\libraryapp\repository\KitapRepository.class
+com\example\libraryapp\LibraryappApplication.class
+com\example\libraryapp\services\impl\AraServiceImpl.class
+com\example\libraryapp\services\EkleService.class
+com\example\libraryapp\entities\Kitap.class
+com\example\libraryapp\entities\Yazar.class
+com\example\libraryapp\repository\YayinEviRepository.class
+com\example\libraryapp\repository\YazarRepository.class
+com\example\libraryapp\entities\YayinEvi.class

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.3.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <title>Kitap İşlemleri</title>
+</head>
+<body>
+<div class="container">
+    <form>
+        <div style="clear: both; display: block; height: 20px;"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <input type="yazarIsim" class="form-control" id="yazarAra"
+                       placeholder="Yazar Araması Yapabilirsiniz">
+                <div style="clear: both; display: block; height: 5px;"></div>
+                <button type="button" class="btn btn-info">Ara</button>
+            </div>
+        </div>
+        <div style="clear: both; display: block; height: 20px;"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+
+                    <thead>
+                    <tr>
+                        <th th:hidden="true">ID</th>
+                        <th>Ad</th>
+                        <th>Açıklama</th>
+                        <th>İşlemler</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="yazar : ${yazarlar}">
+                        <td h:contenteditable="true" th:hidden="true" th:text="${yazar.yazarId}"></td>
+                        <td h:contenteditable="true" th:text="${yazar.yazarAdi}"></td>
+                        <td h:contenteditable="true" th:text="${yazar.aciklama}"></td>
+                        <td>
+                            <form th:object="${yazar}" th:action="@{yazarKaydet}" method="post">
+                                <input type="hidden" th:value="${yazar.yazarAdi}" class="form-control">
+                                <input type="hidden" th:value="${yazar.aciklama}" class="form-control">
+
+                                <button type="submit" class="btn btn-success">Düzenle</button>
+                                <button type="submit" class="btn btn-danger">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

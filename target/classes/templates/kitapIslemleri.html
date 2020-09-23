@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.3.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <title>Kitap İşlemleri</title>
+</head>
+<body>
+<div class="container">
+    <form>
+        <div style="clear: both; display: block; height: 20px;"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <input type="kitapIsim" class="form-control" id="kitapAra"
+                       placeholder="Kitap Adı, Seri Adı, Yazar ve ISBN No ile Arama Yapabilirsiniz">
+                <div style="clear: both; display: block; height: 5px;"></div>
+                <button type="button" class="btn btn-info">Ara</button>
+            </div>
+        </div>
+
+        <div style="clear: both; display: block; height: 20px;"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+
+                    <thead>
+                    <tr>
+                        <th th:hidden="true">ID</th>
+                        <th>Ad</th>
+                        <th>Alt Ad</th>
+                        <th>Seri Ad</th>
+                        <th>ISBN No</th>
+                        <th>Yazar</th>
+                        <th>Yayın Evi</th>
+                        <th>Açıklama</th>
+                        <th>İşlemler</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="clickable-row" th:each="kitap : ${kitaplar}">
+                        <td th:hidden="true" th:text="${kitap.kitapId}"></td>
+                        <td th:contenteditable="true" th:text="${kitap.kitapAdi}"></td>
+                        <td th:contenteditable="true" th:text="${kitap.kitapAltAdi}"></td>
+                        <td th:contenteditable="true" th:text="${kitap.kitapSeriAdi}"></td>
+                        <td th:contenteditable="true" th:text="${kitap.yazar}"></td>
+                        <td th:contenteditable="true" th:text="${kitap.yayinEvi}"></td>
+                        <td th:contenteditable="true" th:text="${kitap.isbn}"></td>
+                        <td th:contenteditable="true" th:text="${kitap.aciklama}"></td>
+                        <td>
+                            <form th:object="${kitap}" th:action="@{kitapKaydet}" method="post">
+                                <input type="hidden" th:value="${kitap.kitapAdi}" class="form-control">
+                                <input type="hidden" th:value="${kitap.kitapAltAdi}" class="form-control">
+                                <input type="hidden" th:value="${kitap.kitapSeriAdi}" class="form-control">
+                                <input type="hidden" th:value="${kitap.yazar}" class="form-control">
+                                <input type="hidden" th:value="${kitap.yayinEvi}" class="form-control">
+                                <input type="hidden" th:value="${kitap.isbn}" class="form-control">
+                                <input type="hidden" th:value="${kitap.aciklama}" class="form-control">
+
+                                <button type="submit" class="btn btn-success">Düzenle</button>
+                                <button type="submit" class="btn btn-danger">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

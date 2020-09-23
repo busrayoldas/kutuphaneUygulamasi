@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.3.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <title>Kütüphane Uygulaması</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hoş Geldiniz! Ne yapmak istersiniz?</h2>
+    <div class="container mt-3">
+        <div class="btn-group btn-group-lg btn-group-vertical">
+
+            <a href="/kitapEkle" class="btn btn-success">Kitap Ekle</a>
+            <div style="clear: both; display: block; height: 5px;"></div>
+            <a href="/kitapIslemleri" class="btn btn-success">Kitap İşlemleri</a>
+
+            <div style="clear: both; display: block; height: 10px;..."></div>
+
+            <a href="/yazarEkle" class="btn btn-success">Yazar Ekle</a>
+            <div style="clear: both; display: block; height: 5px;"></div>
+            <a href="/yazarIslemleri" class="btn btn-success">Yazar İşlemleri</a>
+
+            <div style="clear: both; display: block; height: 10px;"></div>
+
+            <a href="/yayinEviEkle" class="btn btn-success">Yayın Evi Ekle</a>
+            <div style="clear: both; display: block; height: 5px;"></div>
+            <a href="/yayinEviIslemleri" class="btn btn-success">Yayın Evi İşlemleri</a>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
